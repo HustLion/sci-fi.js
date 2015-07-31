@@ -1,21 +1,18 @@
 /**
  * Created by Domicor on 2015/7/31.
  */
-var w = c.width = window.innerWidth,
-    h = c.height = window.innerHeight,
-    ctx = c.getContext( '2d' ),
+var w = cnumber.width = window.innerWidth,
+    h = cnumber.height = window.innerHeight,
+    ctx = cnumber.getContext( '2d' ),
     opts = {
-        chars: '\1234567890¨¬qwertyuiop¨¨+asdfghjkl¨°¨¤¨´<zxcvbnm,.-|!"?$%&/()=?^QWERTYUIOP¨¦*ASDFGHJKL?¡ã¡ì>ZXCVBNM;:_[]@#¢ã{}'.split(''), // every key in the italian keyboard layout. It sucks, we don't even have a backtick!
+        chars: '\1234567890'.split(''), // every key in the italian keyboard layout. It sucks, we don't even have a backtick!
         font: '15px monospace',
         charSize: 17,
         lineHeight: 17,
-
         hueSpeed: 1,
-        repaintAlpha: .04,
-
+        repaintAlpha: .054,
         lightsParXxY: .05
     },
-
     tick = 0;
 
 ctx.font = opts.font;
@@ -41,7 +38,8 @@ function loop() {
         var x = ( ( Math.random() * endX ) | 0 ) * opts.charSize,
             y = ( ( Math.random() * endY ) | 0 ) * opts.lineHeight;
 
-        ctx.fillStyle = 'hsl(hue,80%,50%)'.replace( 'hue', ( x + y ) / sum * 360 + tick );
+        //ctx.fillStyle = 'hsl(hue,80%,50%)'.replace( 'hue', ( x + y ) / sum * 360 + tick );
+        ctx.fillStyle = '#3985BB'; // something blue
         ctx.fillText( opts.chars[ ( Math.random() * opts.chars.length ) |0 ], x, y );
     }
 }
